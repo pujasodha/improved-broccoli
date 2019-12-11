@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import Card from './Card/card';
 
+const getRandomCard = (someArray) => {
+    return someArray[Math.floor(Math.random() * someArray.length)];
+};
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -14,21 +18,11 @@ class App extends Component {
         };
     }
 
-    // define constant before component is ready to mount
-    componentWillMount() {
-        const currentCards = this.state.cards;
+    componentDidMount() {
         this.setState({
-            cards: currentCards,
-            currentCard: this.getRandomCard(currentCards),
+            cards,
+            currentCard: getRandomCard(cards),
         });
-        console.log(currentCards);
-    }
-
-    // getRandomCard function
-    getRandomCard(randomCard) {
-        // randomize by whole numbers
-        var card = currentCards[Math.floor(Math.random() * currentCards.length)];
-        return card;
     }
 
     render() {
