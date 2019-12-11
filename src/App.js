@@ -19,9 +19,10 @@ class App extends Component {
     }
 
     componentDidMount() {
+        const currentCards = this.state.cards;
         this.setState({
-            cards,
-            currentCard: getRandomCard(cards),
+            cards: currentCards,
+            currentCard: getRandomCard(currentCards),
         });
     }
 
