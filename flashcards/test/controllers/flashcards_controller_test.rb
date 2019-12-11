@@ -10,16 +10,25 @@ class FlashcardsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create flashcard" do
+  test 'should create flashcard' do
     assert_difference('Flashcard.count') do
-      post flashcards_url, params: { flashcard: { answer: @flashcard.answer, question: @flashcard.question, user_id: @flashcard.user_id } }, as: :json
+      post flashcards_url, params: {
+        token: @token,
+        flashcard: {
+          answer: @flashcard.answer,
+          question: @flashcard.question,
+          user_id: @flashcard.user_id
+        }
+      }, as: :json
     end
 
     assert_response 201
   end
 
-  test "should show flashcard" do
-    get flashcard_url(@flashcard), as: :json
+  test 'should show flashcard' do
+    get flashcard_url(@flashcard), params: {
+      token: @token
+    }
     assert_response :success
   end
 

@@ -1,5 +1,6 @@
 class FlashcardsController < ApplicationController
   before_action :set_flashcard, only: [:show, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /flashcards
   def index
@@ -46,7 +47,7 @@ class FlashcardsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_flashcard
-      @flashcard = Flashcard.find(params[:id])
+      @flashcard = @current_user.flashcards.find(param[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

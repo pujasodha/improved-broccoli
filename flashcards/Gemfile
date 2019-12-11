@@ -13,6 +13,18 @@ gem 'puma', '~> 3.11'
 # for console 
 gem 'rb-readline'
 
+# HTTP client 
+gem 'faraday', '~> 0.11'
+
+
+group :development, :test do
+  gem 'dotenv-rails'
+  gem 'byebug', platform: :mri
+end
+
+# encode JWT tokens 
+gem 'jwt', '~> 1.5'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production

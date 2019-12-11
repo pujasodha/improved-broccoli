@@ -10,12 +10,12 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create tag" do
+  test 'should create tag' do
     assert_difference('Tag.count') do
       post tags_url, params: {
+        token: @token,
         tag: {
-          name: 'Some Tag',
-          user_id: @tag.user_id
+          name: 'Some Tag'
         }
       }, as: :json
     end
@@ -23,8 +23,10 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
     assert_response 201
   end
 
-  test "should show tag" do
-    get tag_url(@tag), as: :json
+  test 'should show tag' do
+    get tag_url(@tag), params: {
+      token: @token
+    }
     assert_response :success
   end
 
