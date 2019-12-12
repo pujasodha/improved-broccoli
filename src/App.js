@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import Card from './Card/card';
-
-const getRandomCard = (someArray) => {
-    return someArray[Math.floor(Math.random() * someArray.length)];
+import Button from './Button/button';
+// function to randomize card that is shown, rounded to nearest whole number
+const getRandomCard = (array) => {
+    return array[Math.floor(Math.random() * array.length)];
 };
 
 class App extends Component {
@@ -26,13 +27,28 @@ class App extends Component {
         });
     }
 
+    // When the next button is clicked, different card is shown
+    nextCard() {
+        const currentCards = this.state.cards;
+        this.setState({
+            cards: currentCards,
+            currentCard: getRandomCard(currentCards),
+        });
+        console.log('Next Card!');
+    }
+
     render() {
         return (
             <div className="App">
+                <div className="card-row">
                 <Card
                     question={this.state.currentCard.question}
                     answer={this.state.currentCard.answer}
                 />
+            </div>
+                <div className="button-row">
+                    <Button changeCard={this.nextCard} />
+                </div>
             </div>
         );
     }
