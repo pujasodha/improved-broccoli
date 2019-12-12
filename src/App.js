@@ -10,6 +10,7 @@ const getRandomCard = (array) => {
 class App extends Component {
     constructor(props) {
         super(props);
+        this.nextCard = this.nextCard.bind(this);
         this.state = {
             cards: [
                 { id: 1, question: 'Question1', answer: 'Answer1' },
