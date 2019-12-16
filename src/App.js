@@ -1,52 +1,58 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './App.css';
 import Card from './Card/card';
 import Button from './Button/button';
+
 // function to randomize card that is shown, rounded to nearest whole number
 const getRandomCard = (array) => {
-    return array[Math.floor(Math.random() * array.length)];
+    if (array.length === 0) {
+        return new Object();
+    } else {
+        return array[Math.floor(Math.random() * array.length)];
+    }
 };
 
 class App extends Component {
     constructor(props) {
         super(props);
+
         this.nextCard = this.nextCard.bind(this);
+
         this.state = {
-            cards: [
-                { id: 1, question: 'Question1', answer: 'Answer1' },
-                { id: 2, question: 'Question2', answer: 'Answer2' },
-            ],
+            cards: [],
             currentCard: {},
         };
     }
 
-    componentDidMount() {
-        const currentCards = this.state.cards;
+    async componentDidMount() {
+        const { data: cards } = await axios.get(
+            'https://flashcards-a0449.firebaseio.com/cards.json'
+        );
         this.setState({
-            cards: currentCards,
-            currentCard: getRandomCard(currentCards),
+            cards,
+            currentCard: getRandomCard(cards),
         });
     }
 
     // When the next button is clicked, different card is shown
     nextCard() {
-        const currentCards = this.state.cards;
         this.setState({
-            cards: currentCards,
-            currentCard: getRandomCard(currentCards),
+            currentCard: getRandomCard(this.state.cards),
         });
         console.log('Next Card!');
     }
 
     render() {
+        console.log(this.state.cards);
         return (
             <div className="App">
                 <div className="card-row">
-                <Card
-                    question={this.state.currentCard.question}
-                    answer={this.state.currentCard.answer}
-                />
-            </div>
+                    <Card
+                        question={this.state.currentCard.question}
+                        answer={this.state.currentCard.answer}
+                    />
+                </div>
                 <div className="button-row">
                     <Button changeCard={this.nextCard} />
                 </div>
