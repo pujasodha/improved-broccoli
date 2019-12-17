@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
-import Card from './Card/card';
-import Button from './Button/button';
+import Flippy, { FrontSide, BackSide } from 'react-flippy';
+import Cards from './Card/card';
+import NextButton from './Button/button';
 
 // function to randomize card that is shown, rounded to nearest whole number
 const getRandomCard = (array) => {
@@ -18,7 +19,6 @@ class App extends Component {
         super(props);
 
         this.nextCard = this.nextCard.bind(this);
-
         this.state = {
             cards: [],
             currentCard: {},
@@ -40,22 +40,28 @@ class App extends Component {
         this.setState({
             currentCard: getRandomCard(this.state.cards),
         });
+
         console.log('Next Card!');
     }
 
     render() {
         console.log(this.state.cards);
+        console.log(this.timer);
         return (
             <div className="App">
-                <div className="card-row">
-                    <Card
-                        question={this.state.currentCard.question}
-                        answer={this.state.currentCard.answer}
-                    />
-                </div>
-                <div className="button-row">
-                    <Button changeCard={this.nextCard} />
-                </div>
+                <Flippy
+                    flipOnClick={true} // default false
+                    ref={(r) => (this.flippy = r)}
+                >
+                    <FrontSide>
+                        <Cards question={this.state.currentCard.question} />{' '}
+                    </FrontSide>
+
+                    <BackSide>
+                        <Cards answer={this.state.currentCard.answer} />
+                        <NextButton changeCard={this.nextCard} />
+                    </BackSide>
+                </Flippy>
             </div>
         );
     }

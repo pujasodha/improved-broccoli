@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './button.css';
+import { Button } from 'react-bootstrap';
 
-class Button extends Component {
+class NextButton extends Component {
     constructor(props) {
         super(props);
 
@@ -15,12 +16,10 @@ class Button extends Component {
     render(props) {
         return (
             <div className="button-container">
-                <button className="button" onClick={this.changeCard.bind(this)}>
-                    Next
-                </button>
+                <Button onClick={this.changeCard.bind(this)}>Next</Button>
             </div>
         );
     }
 }
 
-export default Button;
+export default NextButton;
