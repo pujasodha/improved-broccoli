@@ -4,6 +4,7 @@ import './App.css';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 import Cards from './Card/card';
 import NextButton from './Button/button';
+import { Container, Row, Col } from 'react-bootstrap';
 
 // function to randomize card that is shown, rounded to nearest whole number
 const getRandomCard = (array) => {
@@ -48,21 +49,30 @@ class App extends Component {
         console.log(this.state.cards);
         console.log(this.timer);
         return (
-            <div className="App">
-                <Flippy
-                    flipOnClick={true} // default false
-                    ref={(r) => (this.flippy = r)}
-                >
-                    <FrontSide>
-                        <Cards question={this.state.currentCard.question} />{' '}
-                    </FrontSide>
+            <Container>
+                <Row className="flip-card">
+                    <Col xs={6}>
+                        <Flippy
+                            flipOnClick={false}
+                            flipOnHover={true}
+                            ref={(r) => (this.flippy = r)}
+                        >
+                            <FrontSide>
+                                <Cards question={this.state.currentCard.question} />{' '}
+                            </FrontSide>
 
-                    <BackSide>
-                        <Cards answer={this.state.currentCard.answer} />
+                            <BackSide>
+                                <Cards answer={this.state.currentCard.answer} />
+                            </BackSide>
+                        </Flippy>
+                    </Col>
+                </Row>
+                <Row className="next-button">
+                    <Col xs={6}>
                         <NextButton changeCard={this.nextCard} />
-                    </BackSide>
-                </Flippy>
-            </div>
+                    </Col>
+                </Row>
+            </Container>
         );
     }
 }
