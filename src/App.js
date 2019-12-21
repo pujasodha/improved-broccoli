@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 import Cards from './Card/card';
+import Header from './Header/header';
 import NextButton from './Button/button';
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -48,32 +49,35 @@ class App extends Component {
     render() {
         console.log(this.state.cards);
         return (
-            <Container>
-                <Row className="flip-card">
-                    <Col xs={6}>
-                        <Flippy
-                            flipOnClick={true}
-                            flipOnHover={false}
-                            ref={(r) => (this.flippy = r)}
-                        >
-                            <FrontSide>
-                                Question
-                                <Cards question={this.state.currentCard.question} />
-                            </FrontSide>
+            <div className="application">
+                <Header></Header>
+                <Container>
+                    <Row className="flip-card">
+                        <Col xs={6}>
+                            <Flippy
+                                flipOnClick={true}
+                                flipOnHover={false}
+                                ref={(r) => (this.flippy = r)}
+                            >
+                                <FrontSide>
+                                    Question
+                                    <Cards question={this.state.currentCard.question} />
+                                </FrontSide>
 
-                            <BackSide>
-                                Answer
-                                <Cards answer={this.state.currentCard.answer} />
-                            </BackSide>
-                        </Flippy>
-                    </Col>
-                </Row>
-                <Row className="next-button">
-                    <Col xs={6}>
-                        <NextButton changeCard={this.nextCard} />
-                    </Col>
-                </Row>
-            </Container>
+                                <BackSide>
+                                    Answer
+                                    <Cards answer={this.state.currentCard.answer} />
+                                </BackSide>
+                            </Flippy>
+                        </Col>
+                    </Row>
+                    <Row className="next-button">
+                        <Col xs={6}>
+                            <NextButton changeCard={this.nextCard} />
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
         );
     }
 }

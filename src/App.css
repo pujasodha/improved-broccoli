@@ -3,6 +3,11 @@ body {
   background-image: linear-gradient(to bottom right, rgb(252, 242, 232), rgb(254, 247, 240))
 }
 
+.application {
+  text-align: center;
+  margin-top: 2%;
+}
+
 .container {
   margin: 30%;
 }
@@ -26,6 +31,6 @@ body {
 
 @media(min-width: 768px) {
   .container {
-    margin: 10%;
+    margin: 5%;
   }
 }
