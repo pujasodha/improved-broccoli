@@ -1,6 +1,23 @@
 .card-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 10em 15em;
+    padding: 3em 1.2em;
+}
+
+.question,
+.answer {
+    font-size: 1.8em;
+}
+
+@media (min-width: 768px) {
+    .card-container {
+        padding: 3em 1.2em
+    }
+
+    .question,
+    .answer {
+        font-size: 3em;
+    }
 }

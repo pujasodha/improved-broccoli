@@ -47,21 +47,22 @@ class App extends Component {
 
     render() {
         console.log(this.state.cards);
-        console.log(this.timer);
         return (
             <Container>
                 <Row className="flip-card">
                     <Col xs={6}>
                         <Flippy
-                            flipOnClick={false}
-                            flipOnHover={true}
+                            flipOnClick={true}
+                            flipOnHover={false}
                             ref={(r) => (this.flippy = r)}
                         >
                             <FrontSide>
-                                <Cards question={this.state.currentCard.question} />{' '}
+                                Question
+                                <Cards question={this.state.currentCard.question} />
                             </FrontSide>
 
                             <BackSide>
+                                Answer
                                 <Cards answer={this.state.currentCard.answer} />
                             </BackSide>
                         </Flippy>

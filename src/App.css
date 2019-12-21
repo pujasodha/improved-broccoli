@@ -1,5 +1,10 @@
+body {
+  height: 100vh;
+  background-image: linear-gradient(to bottom right, rgb(252, 242, 232), rgb(254, 247, 240))
+}
+
 .container {
-  margin: 5%;
+  margin: 30%;
 }
 
 .flip-card,
@@ -7,4 +12,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: auto;
+}
+
+.flippy-card.flippy-front {
+  background-color: #AC93AC
+}
+
+.flippy-card.flippy-back {
+  color: white;
+  background-color: #263954
+}
+
+@media(min-width: 768px) {
+  .container {
+    margin: 10%;
+  }
 }
