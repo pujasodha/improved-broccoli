@@ -52,11 +52,17 @@ class App extends Component {
             <div className="application">
                 <Header></Header>
                 <Container>
+                    <Row className="next-button">
+                        <Col xs={6}>
+                            <NextButton changeCard={this.nextCard} />
+                        </Col>
+                    </Row>
                     <Row className="flip-card">
                         <Col xs={6}>
                             <Flippy
                                 flipOnClick={true}
                                 flipOnHover={false}
+                                style={{ height: 'auto', width: 'auto' }}
                                 ref={(r) => (this.flippy = r)}
                             >
                                 <FrontSide>
@@ -64,16 +70,11 @@ class App extends Component {
                                     <Cards question={this.state.currentCard.question} />
                                 </FrontSide>
 
-                                <BackSide>
+                                <BackSide style={{ height: 'auto' }}>
                                     Answer
                                     <Cards answer={this.state.currentCard.answer} />
                                 </BackSide>
                             </Flippy>
-                        </Col>
-                    </Row>
-                    <Row className="next-button">
-                        <Col xs={6}>
-                            <NextButton changeCard={this.nextCard} />
                         </Col>
                     </Row>
                 </Container>
