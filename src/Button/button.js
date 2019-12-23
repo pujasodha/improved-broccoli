@@ -16,7 +16,7 @@ class NextButton extends Component {
     render(props) {
         return (
             <div className="button-container">
-                <Button className="button" onClick={this.changeCard.bind(this)} variant="info">
+                <Button className="button" onClick={this.changeCard.bind(this)} variant="light">
                     Next
                 </Button>
             </div>

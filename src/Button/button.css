@@ -2,20 +2,45 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    margin-top: 1em;
 }
 
 button.button {
     font-size: 1.2em;
     padding: 1em 5em;
+    background-color: #dc807a;
+    border: none;
+    color: white;
+    margin-top: 2em;
+    margin-bottom: 4em;
 }
+
+button.button:hover {
+    background-color: #d57b74;
+    box-shadow: 5px 5px 0px 2px rgb(36, 18, 17);
+    color: white;
+}
+
+button.button:focus {
+    background-color: #dc807a;
+
+    color: white
+}
+
+button.button:active,
+.btn-info:not(:disabled):not(.disabled):active {
+    background-color: #dc807a !important;
+    color: white !important;
+    /* outline: none !important;
+    border: none !important; */
+}
+
 
 @media(min-width: 768px) {
     button.button {
-        padding: 1em 13em;
+        padding: 1em 5em;
     }
 
     .button-container {
-        margin-top: 2em;
+        margin-top: 3em;
     }
 }
