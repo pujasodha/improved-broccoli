@@ -8,9 +8,6 @@ body {
   margin-top: 2%;
 }
 
-.container {
-  /* margin: 30%; */
-}
 
 .flip-card,
 .next-button {
@@ -19,8 +16,6 @@ body {
   align-items: center;
   width: auto;
 }
-
-
 
 .flippy-card.flippy-front {
   background-color: #AC93AC;
@@ -34,8 +29,4 @@ body {
 
 }
 
-@media(min-width: 768px) {
-  .container {
-    /* margin: 5%; */
-  }
-}
+@media(min-width: 768px) {}
