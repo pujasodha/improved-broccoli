@@ -1,6 +1,6 @@
 body {
   height: 100vh;
-  background-image: linear-gradient(to bottom right, rgb(252, 242, 232), rgb(254, 247, 240))
+  background-image: linear-gradient(to bottom right, #fcf2e8, rgb(254, 247, 240))
 }
 
 .application {
@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-  margin: 30%;
+  /* margin: 30%; */
 }
 
 .flip-card,
@@ -20,17 +20,22 @@ body {
   width: auto;
 }
 
+
+
 .flippy-card.flippy-front {
-  background-color: #AC93AC
+  background-color: #AC93AC;
+  box-shadow: 10px 10px 0px 4px rgb(55, 42, 55);
 }
 
 .flippy-card.flippy-back {
   color: white;
-  background-color: #263954
+  background-color: #263954;
+  box-shadow: 10px 10px 0px 4px #1f2630;
+
 }
 
 @media(min-width: 768px) {
   .container {
-    margin: 5%;
+    /* margin: 5%; */
   }
 }
