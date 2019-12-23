@@ -4,20 +4,20 @@
     align-items: center;
     text-align: center;
     padding: 3em 1.2em;
+    height: auto;
+
 }
 
-.question,
-.answer {
+.question {
     font-size: 1.8em;
+}
+
+.answer {
+    font-size: 1.2em;
 }
 
 @media (min-width: 768px) {
     .card-container {
         padding: 3em 1.2em
-    }
-
-    .question,
-    .answer {
-        font-size: 3em;
     }
 }
