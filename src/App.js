@@ -53,12 +53,12 @@ class App extends Component {
                 <Header></Header>
                 <Container>
                     <Row className="next-button">
-                        <Col xs={6}>
+                        <Col xs={8}>
                             <NextButton changeCard={this.nextCard} />
                         </Col>
                     </Row>
                     <Row className="flip-card">
-                        <Col xs={6}>
+                        <Col xs={8}>
                             <Flippy
                                 flipOnClick={true}
                                 flipOnHover={false}
@@ -73,6 +73,7 @@ class App extends Component {
                                 <BackSide style={{ height: 'auto' }}>
                                     Answer
                                     <Cards answer={this.state.currentCard.answer} />
+                                    Source: {this.state.currentCard.source}
                                 </BackSide>
                             </Flippy>
                         </Col>
